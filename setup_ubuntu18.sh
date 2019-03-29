@@ -23,12 +23,15 @@ sudo apt-get install -y ibus-teni
 ibus restart
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'teni')]"
 
-# Install GNOME tweak tool and Arc theme
+# Customize Ubuntu
 echo "Install GNOME tweak tool and Arc theme"
 sudo add-apt-repository -y ppa:noobslab/icons
 sudo apt install -y gnome-tweak-tool arc-theme arc-icons
 gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Arc-Icons'
+
+echo "Install GNOME extensions"
+sudo apt install -y chrome-gnome-shell gnome-shell-extensions
 
 # Remove Thunderbird
 echo "Remove Thunderbird"
@@ -75,3 +78,8 @@ echo "- Laravel Installer"
 composer global require laravel/installer
 echo "- PHP CS Fixer"
 composer global require friendsofphp/php-cs-fixer
+echo "- MySQL server"
+sudo apt install -y mysql-server expect
+sudo mysql_secure_installation
+echo "   Creating user 'homestead' with password 'secret'"
+sudo mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'homestead'@'localhost' IDENTIFIED BY 'secret'"
