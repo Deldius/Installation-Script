@@ -52,6 +52,9 @@ sudo apt install -y code
 sudo gpgconf --kill dirmngr
 sudo chown -R $USER:$USER ~/.gnupg
 
+sudo sh -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
+sudo sysctl -p
+
 # Set Favourite apps on dock
 echo "Set Favourite apps on dock"
 gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'google-chrome.desktop', 'code.desktop', 'org.gnome.Nautilus.desktop', 'rhythmbox.desktop']"
@@ -59,7 +62,7 @@ gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'google-chrome.
 # Install PHP dev environment
 echo "Install PHP dev environment"
 echo "- PHP"
-sudo apt install -y php php-pear php-fpm php-dev php-zip php-curl php-xmlrpc php-gd php-mysql php-mbstring php-xml
+sudo apt install -y php php-pear php-fpm php-curl php-zip php-curl php-xmlrpc php-gd php-mysql php-mbstring php-xml
 echo "- Composer"
 sudo apt install -y composer
 sed '3iexport PATH="\$HOME/.config/composer/vendor/bin:\$PATH"' ~/.zshrc > ~/.zshrc_new
