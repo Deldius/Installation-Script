@@ -1,0 +1,24 @@
+{
+    "terminal.integrated.shell.linux": "zsh",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "400",
+    "editor.fontSize": 15,
+    "editor.renderWhitespace": "all",
+    "window.zoomLevel": 0,
+    "window.titleBarStyle": "custom",
+    "php-cs-fixer.executablePath": "php-cs-fixer",
+    "php-cs-fixer.onsave": true,
+    "php-cs-fixer.config": "~/.vscode/.php_cs",
+    "[php]": {
+        "editor.defaultFormatter": "junstyle.php-cs-fixer",
+        "editor.formatOnSave": true,
+    },
+    "git.autofetch": true,
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+   "[vue]": {
+        "editor.tabSize": 2
+    }
+}
